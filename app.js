@@ -8,7 +8,7 @@ const logger = require("koa-logger");
 
 const session = require("koa-generic-session");
 const redisStore = require("koa-redis");
-const { REDIS_CONF } = require("../conf/db");
+const { REDIS_CONF } = require("./src/conf/db");
 
 const index = require("./src/routes/index");
 const users = require("./src/routes/users");
