@@ -64,11 +64,13 @@ Request的详细API https://koa.bootcss.com/#request
 <div>
   <img src="./resources/4765B5B17FE38372E53E80BEA46D3EC8.jpg" width="416" height="727">
 </div>
+
 * ctx.response  koa 的 Response 对象.
 Response的详细API https://koa.bootcss.com/#response
 <div>
   <img src="./resources/1A34DC565B8DB747E90C532768DD9C12.jpg" width="371" height="486">
 </div>
+
 * ctx.app  应用程序实例引用
 
 ### cookie处理
@@ -77,6 +79,7 @@ ctx.cookies.set(name, value, [options])  通过 options 设置 cookie name 的 v
 <div>
   <img src="./resources/C23D02B78FE6BF388968B3B76412DA0C.jpg" width="765" height="280">
 </div>
+
 ### 抛出错误
 ctx.throw([status], [msg], [properties])
 用来抛出一个包含 .status 属性错误的帮助方法，其默认值为 500
