@@ -61,17 +61,22 @@ app.on('error', (err, ctx) => {
 * ctx.res   Node的response 对象 绕过 Koa 的 response 处理是 不被支持的.
 * ctx.request  koa 的 Request 对象.
 Request的详细API https://koa.bootcss.com/#request
-![IMAGE](resources/4765B5B17FE38372E53E80BEA46D3EC8.jpg=416x727)
+<div>
+  <img src="./resources/4765B5B17FE38372E53E80BEA46D3EC8.jpg" width="416" height="727">
+</div>
 * ctx.response  koa 的 Response 对象.
 Response的详细API https://koa.bootcss.com/#response
-![IMAGE](resources/1A34DC565B8DB747E90C532768DD9C12.jpg=371x486)
+<div>
+  <img src="./resources/1A34DC565B8DB747E90C532768DD9C12.jpg" width="371" height="486">
+</div>
 * ctx.app  应用程序实例引用
 
 ### cookie处理
 ctx.cookies.get(name, [options])  通过 options 获取 cookie name:
 ctx.cookies.set(name, value, [options])  通过 options 设置 cookie name 的 value :
-![IMAGE](resources/C23D02B78FE6BF388968B3B76412DA0C.jpg=765x280)
-
+<div>
+  <img src="./resources/C23D02B78FE6BF388968B3B76412DA0C.jpg" width="765" height="280">
+</div>
 ### 抛出错误
 ctx.throw([status], [msg], [properties])
 用来抛出一个包含 .status 属性错误的帮助方法，其默认值为 500
