@@ -3,7 +3,7 @@ let MYSQL_CONF = {
   user: "root",
   password: "19950128",
   port: "3306",
-  database: "koa2_weibo_demo",
+  database: "koa2_weibo_db",
 };
 
 let REDIS_CONF = {
