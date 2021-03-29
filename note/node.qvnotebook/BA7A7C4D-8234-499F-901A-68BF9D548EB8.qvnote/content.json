@@ -1,0 +1,9 @@
+{
+  "title": "node相关资源库",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "### RESTFUL框架\n* [koa](https://github.com/koajs/koa) - 新一代 web 框架，由 Express 幕后的原班人马打造\n* [express](https://github.com/expressjs/express/) - Node.js Web 应用程序框架\n\n### process management\n* [supervisor](https://github.com/petruisfan/node-supervisor) - 监听文件变化并自动重启\n* [nodemon](https://github.com/remy/nodemon) - 监视 node.js 应用程序中的任何更改并自动重启服务器\n* [pm2](https://github.com/Unitech/pm2) - 内置负载均衡的 node 进程管理器\n\n### debug & info\n* [debug](https://github.com/visionmedia/debug) - 最好用的 debug 日志辅助工具, 可以开启关闭, 日志分类, 打印部分日志。浏览器和node环境中都可以用\n* [log-update](https://github.com/sindresorhus/log-update) - 在 Terminal 渲染进度条或动画\n* [ora](https://github.com/sindresorhus/ora) - Terminal spinner\n* [consola](https://github.com/nuxt-contrib/consola) - Console Logger for Node.js and Browser\n* [log4js-node/log4js-node: A port of log4js to node.js](https://github.com/log4js-node/log4js-node)\n\n### 数据库\n* [sequelize](https://github.com/sequelize/sequelize) - 一款支持 mysql, sqlite3, pg, msssql 的多功能 ORM 库\n\n### 脚手架 command-line\n* [enquirer](https://github.com/enquirer/enquirer) - 用于创建交互式 CLI 提示\n* [yargs](https://github.com/yargs/yargs) - 命令行参数解析工具\n* [update-check](https://github.com/vercel/update-check) - 检查模块是否有更新\n* [listr](https://github.com/samverschueren/listr) - Terminal 任务列表\n* [semver](https://github.com/npm/node-semver) - node 的 semver 解析器"
+    }
+  ]
+}
