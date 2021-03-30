@@ -5,16 +5,25 @@ const json = require("koa-json");
 const onerror = require("koa-onerror");
 const bodyparser = require("koa-bodyparser");
 const logger = require("koa-logger");
-
 const session = require("koa-generic-session");
 const redisStore = require("koa-redis");
-const { REDIS_CONF } = require("./conf/db");
 
-const index = require("./routes/index");
-const users = require("./routes/users");
+const userAPIRouter = require("./routes/api/user");
+const userViewRouter = require("./routes/view/user");
+const errorViewRouter = require("./routes/view/error");
+
+const { isProd } = require("./utils/env");
+const { REDIS_CONF } = require("./conf/db");
+const { SESSION_SECRET_KEY } = require("./conf/secretKeys");
 
 // error handler
-onerror(app);
+let onerrorConf = {};
+if (isProd) {
+  onerrorConf = {
+    redirect: "/error",
+  };
+}
+onerror(app, onerrorConf);
 
 // middlewares
 app.use(
@@ -24,16 +33,16 @@ app.use(
 );
 app.use(json());
 app.use(logger());
-app.use(require("koa-static")(__dirname + "/src/public"));
+app.use(require("koa-static")(__dirname + "/public"));
 
 app.use(
-  views(__dirname + "/src/views", {
+  views(__dirname + "/views", {
     extension: "ejs",
   })
 );
 
 // session 配置
-app.keys = ["UhsjF_67jh&&*$"];
+app.keys = [SESSION_SECRET_KEY];
 app.use(
   session({
     key: "weibo.sid",
@@ -52,12 +61,13 @@ app.use(
 );
 
 // routes
-app.use(index.routes(), index.allowedMethods());
-app.use(users.routes(), users.allowedMethods());
+app.use(userAPIRouter.routes(), userAPIRouter.allowedMethods());
+app.use(userViewRouter.routes(), userViewRouter.allowedMethods());
+app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods()); // 404 路由注册到最后面
 
 // error-handling
 app.on("error", (err, ctx) => {
-  console.error("server error", err, ctx);
+  console.error("server error =====================", err, ctx);
 });
 
 module.exports = app;

@@ -16,13 +16,4 @@ conf.pool = {
 
 const seq = new Sequelize(database, user, password, conf);
 
-// 测试连接
-// seq.authenticate()
-//   .then(() => {
-//     console.log("ok");
-//   })
-//   .catch(() => {
-//     console.log("err");
-//   });
-
 module.exports = seq;
