@@ -10,9 +10,8 @@ const SCHEMA = {
   properties: {
     userName: {
       type: "string",
-      pattern: "^[a-zA-Z][a-zA-Z0-9_]+$", // 字母开头，字母数字下划线
       maxLength: 255,
-      minLength: 2,
+      minLength: 1,
     },
     password: {
       type: "string",
