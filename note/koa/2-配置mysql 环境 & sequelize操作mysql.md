@@ -153,7 +153,7 @@ return result[0] > 0; // 修改的行数
 ```
 
 #### findAndCountAll 
-(分页/查询总数/连表查询)的demo
+(分页/查询总数/连表查询)
 ```
   const result = await Blog.findAndCountAll({
     limit: pageSize, // 每页多少条

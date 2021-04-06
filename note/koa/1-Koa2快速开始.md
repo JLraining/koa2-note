@@ -77,7 +77,7 @@ Response的详细API https://koa.bootcss.com/#response
 ctx.cookies.get(name, [options])  通过 options 获取 cookie name:
 ctx.cookies.set(name, value, [options])  通过 options 设置 cookie name 的 value :
 <div>
-  <img src="./resources/C23D02B78FE6BF388968B3B76412DA0C.jpg" width="765" height="280">
+  <img src="./resources/C23D02B78FE6BF388968B3B76412DA0C.jpg">
 </div>
 
 ### 抛出错误
