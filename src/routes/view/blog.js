@@ -4,32 +4,45 @@
 
 const router = require("koa-router")();
 const { loginRedirect } = require("../../middlewares/loginChecks");
-const { getProfileBlogList } = require('../../controller/blog-profile')
+const { getProfileBlogList } = require("../../controller/blog-profile");
+const { getHomeBlogList } = require("../../controller/blog-home");
+const { isExist } = require("../../controller/user");
+const { getFans, getFollowers } = require("../../controller/user-relation");
 
 // 首页
 router.get("/", loginRedirect, async (ctx, next) => {
   const userInfo = ctx.session.userInfo;
   const { id: userId } = userInfo;
+  // 获取第一页数据
+  const result = await getHomeBlogList(userId);
+  const { isEmpty, blogList, pageSize, pageIndex, count } = result.data;
+  // 获取粉丝
+  const fansResult = await getFans(userId);
+  const { count: fansCount, fansList } = fansResult.data;
 
+  // 获取关注人列表
+  const followersResult = await getFollowers(userId);
+  const { count: followersCount, followersList } = followersResult.data;
+console.log(followersResult)
   await ctx.render("index", {
     userData: {
       userInfo,
       fansData: {
-        count: 0,
-        list: [],
+        count: fansCount,
+        list: fansList,
       },
       followersData: {
-        count: 0,
-        list: [],
+        count: followersCount,
+        list: followersList,
       },
       atCount: 0,
     },
     blogData: {
-      isEmpty: true,
-      blogList: [],
-      pageSize: 1,
-      pageIndex: 1,
-      count: 0,
+      isEmpty,
+      blogList,
+      pageSize,
+      pageIndex,
+      count,
     },
   });
 });
